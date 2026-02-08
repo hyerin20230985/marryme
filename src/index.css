@@ -1,0 +1,52 @@
+@font-face {
+  font-family: 'ZEN-SERIF';
+  src: url('./font/ZEN-SERIF-Regular.otf') format('opentype'),
+       url('./font/ZEN-SERIF-TTF-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  background: linear-gradient(to bottom, #feb3ff, white);
+  min-height: 100vh;
+  font-family: 'ZEN-SERIF', serif;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fade-in-image {
+  animation: fadeInScale 1s ease-out forwards;
+}
+
+@keyframes starFall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.star-particle {
+  position: fixed;
+  pointer-events: none;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  animation: starFall 1s ease-out forwards;
+  box-shadow: 0 0 10px currentColor;
+  z-index: 9999;
+}
+
