@@ -62,37 +62,38 @@ function App() {
             />
           ))}
           
-          <div className="flex justify-center text-6xl text-white font-bold">
-            <h1 className="mt-20 drop-shadow-lg">{showImage ? '고마워 사랑해❤️' : '나랑 결혼해줄래?'}</h1>
+          <div className="flex justify-center text-4xl md:text-6xl text-white font-bold px-4 text-center">
+            <h1 className="mt-20 md:mt-20 drop-shadow-lg">{showImage ? '고마워 사랑해❤️' : '나랑 결혼해줄래?'}</h1>
           </div>
           {!showImage ? (
-            <div className="flex justify-center mt-40 relative">
-              <button onClick={handleYesClick} className="bg-white text-black px-10 py-2 rounded-full mr-5 drop-shadow-lg">네</button>
+            <div className="flex justify-center mt-20 md:mt-40 relative">
+              <button onClick={handleYesClick} className="bg-white text-black px-6 py-2 md:px-10 md:py-2 rounded-full mr-5 drop-shadow-lg text-lg md:text-xl">네</button>
               <button 
                 onClick={handleNoClick}
                 onMouseEnter={handleNoHover}
+                onTouchStart={handleNoHover}
                 style={{
                   position: noButtonPosition.top === 0 ? 'relative' : 'fixed',
                   top: noButtonPosition.top === 0 ? 'auto' : `${noButtonPosition.top}%`,
                   left: noButtonPosition.top === 0 ? 'auto' : `${noButtonPosition.left}%`,
                   transition: 'all 0.3s ease'
                 }}
-                className="bg-white text-black px-10 py-2 rounded-full drop-shadow-lg"
+                className="bg-white text-black px-6 py-2 md:px-10 md:py-2 rounded-full drop-shadow-lg text-lg md:text-xl"
               >
                 아니오
               </button>
             </div>
           ) : (
-            <div className="flex justify-center items-center mt-20">
-              <img src={marryKitiImg} alt="결혼 이미지" className="max-w-2xl drop-shadow-2xl fade-in-image" />
+            <div className="flex justify-center items-center mt-10 md:mt-20 px-4">
+              <img src={marryKitiImg} alt="결혼 이미지" className="w-full max-w-md md:max-w-2xl drop-shadow-2xl fade-in-image" />
             </div>
           )}
         </>
       )}
       
       {showGhost && (
-        <div className="flex justify-center items-center h-screen">
-          <img src={ghostImg} alt="유령" className="max-w-2xl fade-in-image" />
+        <div className="flex justify-center items-center h-screen px-4">
+          <img src={ghostImg} alt="유령" className="w-full max-w-md md:max-w-2xl fade-in-image" />
         </div>
       )}
     </div>
