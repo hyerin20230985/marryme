@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react'
+import marryKitiImg from './assets/marrykiti.png'
+import ghostImg from './assets/ghost.jpg'
 
 function App() {
   const [showImage, setShowImage] = useState(false)
@@ -82,7 +84,7 @@ function App() {
             </div>
           ) : (
             <div className="flex justify-center items-center mt-20">
-              <img src="/src/assets/marrykiti.png" alt="결혼 이미지" className="max-w-2xl drop-shadow-2xl fade-in-image" />
+              <img src={marryKitiImg} alt="결혼 이미지" className="max-w-2xl drop-shadow-2xl fade-in-image" />
             </div>
           )}
         </>
@@ -90,7 +92,7 @@ function App() {
       
       {showGhost && (
         <div className="flex justify-center items-center h-screen">
-          <img src="/src/assets/ghost.jpg" alt="유령" className="max-w-2xl fade-in-image" />
+          <img src={ghostImg} alt="유령" className="max-w-2xl fade-in-image" />
         </div>
       )}
     </div>
