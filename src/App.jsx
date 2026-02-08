@@ -7,6 +7,13 @@ function App() {
   const [showGhost, setShowGhost] = useState(false)
   const [noButtonPosition, setNoButtonPosition] = useState({ top: 0, left: 0 })
   const [stars, setStars] = useState([])
+  const [clickCount, setClickCount] = useState(0)
+  const [clickLimit, setClickLimit] = useState(0)
+
+  useEffect(() => {
+    // Set random click limit between 7 and 10
+    setClickLimit(Math.floor(Math.random() * 4) + 7)
+  }, [])
 
   const handleYesClick = () => {
     setShowImage(true)
@@ -19,7 +26,19 @@ function App() {
   }
 
   const handleNoClick = () => {
-    setShowGhost(true)
+    // Check if mobile (width <= 768px matches the md breakpoint in Tailwind)
+    const isMobile = window.innerWidth <= 768
+
+    if (isMobile) {
+      const newCount = clickCount + 1
+      setClickCount(newCount)
+      
+      if (newCount >= clickLimit) {
+        setShowGhost(true)
+      }
+    } else {
+      setShowGhost(true)
+    }
   }
 
   const handleMouseMove = (e) => {
